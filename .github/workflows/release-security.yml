@@ -1,0 +1,35 @@
+name: Release Security Checks
+
+on:
+  pull_request:
+  push:
+    branches:
+      - master
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install pinned dependencies
+        run: python -m pip install --disable-pip-version-check -r requirements.txt pytest==9.1.1
+
+      - name: Run release checks
+        run: python release_check.py .
+
+      - name: Run Python tests
+        run: python -m pytest -q
+
+      - name: Build unsigned dry-run release
+        run: python scripts/build_release.py --version 1.5.6 --output dist/dry-run
