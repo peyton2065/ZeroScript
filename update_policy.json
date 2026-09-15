@@ -1,0 +1,36 @@
+{
+  "asset_name_pattern": "^ZeroScript-Free-v\\d+\\.\\d+\\.\\d+\\.zip$",
+  "check_interval_seconds": 21600,
+  "max_archive_bytes": 52428800,
+  "max_manifest_bytes": 262144,
+  "protected_paths": [
+    "bridge.py",
+    "bridge_auth.py",
+    "launch_studio_mcp.py",
+    "start.bat",
+    "MacOS_Start.command",
+    "config.json",
+    "requirements.txt",
+    "release_check.py",
+    "update_manager.py",
+    "update_policy.json",
+    "update_state.json",
+    "release_keys.json",
+    "zeroscript-extension/manifest.json",
+    "zeroscript-extension/background.js",
+    "zeroscript-extension/core/security.js",
+    "zeroscript-extension/core/main.js",
+    "zeroscript-extension/core/update.js",
+    "zeroscript-extension/popup.js",
+    "zeroscript-extension/popup.html"
+  ],
+  "release_api": "https://api.github.com/repos/peyton2065/ZeroScript/releases/latest",
+  "release_manifest_asset": "release-manifest.json",
+  "release_signature_asset": "release-manifest.sig",
+  "repository": "peyton2065/ZeroScript",
+  "require_signature_for_auto": true,
+  "review_prefixes": [
+    "zeroscript-extension/providers/"
+  ],
+  "security_patch_level": "batch13"
+}
